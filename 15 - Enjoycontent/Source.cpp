@@ -4,10 +4,7 @@
 using namespace std;
 
 
-
-
-
-int main ()
+int main()
 {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
@@ -20,16 +17,36 @@ int main ()
 		"Скриптонит","Ильяс Фахурдинов","Weeknd","ZAYN","Alexandra Dadario","Justin Bieber","Cher","LIDA",
 		"Джиган","Альбина Сексова","Егор Шип","Кочанов Марк Борисович","Doja Cat","Eva Elfie",
 		"Ким Кардашьян","Кайли Дженнер","Selena Gomez","Райан Гослинг","Джейсон Стетхэм",
-		"ramzes666","Icona Pop","Thomas Mraz"};
-	string music[] = {"Young and Beautiful - Lana Del Rey","Pillowtalk - ZAYN","Blinding Light - Weeknd",
+		"ramzes666","Icona Pop","Thomas Mraz" };
+	string music[9] = { "Young and Beautiful - Lana Del Rey","Pillowtalk - ZAYN","Blinding Light - Weeknd",
 		"Spirits - The Strumbellas","Кадиллак - Моргенштерн","Гэнг Бэнг - LIDA","Dior - Егор Шип",
-		"Ribs - Lorde","Лапки - Хоффманита"};
-	string lit[9] = { "а","б","в","г","д","е","ж","з","и","й","к","л","м","н","о","п","р","с","т","у","ф","х","ц","ч","ш","щ","э","ю","я" };
-	
-	string name, surname, year;
-
+		"Ribs - Lorde","Лапки - Хоффманита" };
+	string lit = "абвгдежзиклмнопрстуфхцчшщэюя";
+	string name, surname;
+	int year;
+	cout << "Имя: ";
 	cin >> name;
-	cin >> surname
+	cout << "Фамииля: ";
+	cin >> surname;
+	cout << "Год рождения: ";
 	cin >> year;
+	for (int i = 0; i < 28; i++)
+		if (name[0] == lit[i]) {
+			cout << "Ваш фильм: " << films[i] << endl;
+			break;
+		}
+	for (int j = 0; j < 28; j++)
+		if (surname[0] == lit[j]) {
+			cout << "Ваша звезда: " << persons[j] << endl;
+			break;
+		}
+
+	while (year / 10 != 0)
+	{
+		year = year / 1000 + (year / 100) % 10 + (year / 10) % 10 + year % 10;
+	}
+	year = year - 1;
+	cout << "Музыка для вас: " << music[year] << endl;
+
 	return 0;
 }
